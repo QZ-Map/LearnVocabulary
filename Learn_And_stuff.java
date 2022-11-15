@@ -24,7 +24,7 @@ class Learn_And_stuff
       {
         line = fileScanner.nextLine();
         String[] splitLine = line.split("\\|");
-        if(splitLine.length != 2)
+        if(splitLine.length != 3)
           println("Language broken " + splitLine.length + "\n" + line );//throw exeption
         vocabSet.setLanguage(splitLine[0], splitLine[1]);
       }
@@ -39,9 +39,9 @@ class Learn_And_stuff
       {
         line = fileScanner.nextLine();
         String[] splitLine = line.split("\\|");
-        if(splitLine.length != 2)
+        if(splitLine.length != 3)
           println("vocabs broken " + splitLine.length);//throw exeption
-        vocabSet.add(splitLine[0], splitLine[1]);
+        vocabSet.add(splitLine[0], splitLine[1], Integer.parseInt(splitLine[2]));
       }
       fileScanner.close();
     } catch (FileNotFoundException e)
@@ -65,11 +65,11 @@ class Learn_And_stuff
     {
       outFile.createNewFile();
       FileWriter outFileWriter = new FileWriter(outFile);
-      outFileWriter.write(vocabSet.vocabLanguage + "|" + vocabSet.definitionLanguage +"\n");
-      outFileWriter.write("-|-\n");
+      outFileWriter.write(vocabSet.vocabLanguage + "|" + vocabSet.definitionLanguage +"|score\n");
+      outFileWriter.write("-|-|-\n");
       for(int i = 0; i<vocabSet.vocabs.size(); i++)
       {
-        outFileWriter.write(vocabSet.vocabs.get(i) + "|" + vocabSet.definitions.get(i) + "\n");
+        outFileWriter.write(vocabSet.vocabs.get(i) + "|" + vocabSet.definitions.get(i) + "|" + vocabSet.score.get(i) + "\n");
       }
       outFileWriter.close();
     }
