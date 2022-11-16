@@ -22,7 +22,7 @@ public class Learn_And_stuff extends FileIO
       println("what?");
     }
 
-    /*String file =  "/home/nils/share/Programieren verlinkt mit Webserver/LernVocabLikeQuizlet/Example.vocab.txt";//args[0];
+    /*String file =  "";//args[0];
     VocabSet vocabSet = readFile(file);
     writeFile(vocabSet, file);*/
   }
