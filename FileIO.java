@@ -23,11 +23,11 @@ public class FileIO {
         {
           if(i%2 == 0)
           {
-            vocabSet.vocabs.add(words[i/2]);
+            vocabSet.vocabs.add(words[i].trim());
           }
           else
           {
-            vocabSet.definitions.add(words[i/2]);
+            vocabSet.definitions.add(words[i].trim());
           }
         }
         if(i%2 == 1)
@@ -42,24 +42,13 @@ public class FileIO {
         {
 
           String[] words = {"",""};
-          words[0] = content.split(commaSeperatorREGEX);
-           /// Finish tomorrow
+          String[] tmp = lines[i].split(commaSeperatorREGEX);
+          words[0] = tmp[0].trim();
+          if(tmp.length !=1)
+          words[1] = tmp[1].trim();
+          vocabSet.add(words[0], words[1]);
         }
       }
-
-      if(fileScanner.hasNextLine())
-        fileScanner.nextLine();
-      else
-      println("Language broken2");//throw exeption
-      while(fileScanner.hasNextLine())
-      {
-        line = fileScanner.nextLine();
-        String[] splitLine = line.split("\\|");
-        if(splitLine.length != 3)
-          println("vocabs broken " + splitLine.length);//throw exeption
-        vocabSet.add(splitLine[0], splitLine[1], Integer.parseInt(splitLine[2]));
-      }
-      fileScanner.close();
     } catch (FileNotFoundException e)
     {
       System.out.println("Error: 404 File not found");
@@ -73,6 +62,12 @@ public class FileIO {
   {
     System.out.println(ln);
   }
+
+  public static void print(String ln)
+  {
+    System.out.print(ln);
+  }
+
 
   public static void writeFile(VocabSet vocabSet, String path)
   {
