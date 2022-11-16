@@ -33,7 +33,7 @@ public class VocabSet
     {
       Random random = new Random();
       int number = random.nextInt(this.isLearning.size() -1);
-      if(this.score.get(this.isLearning.get(number))<=1)
+      if(this.score.get(this.isLearning.get(number))<=1 && false)
       {
         //this.quiz(this.isLearning.get(number));
       }
@@ -41,6 +41,7 @@ public class VocabSet
       {
         this.type(this.isLearning.get(number));
       }
+      this.isLearning.remove(number);
     }
   }
 
@@ -52,11 +53,15 @@ public class VocabSet
     if(answer.trim().toLowerCase() == this.vocabs.get(index).trim().toLowerCase())
     {
       System.out.println("Correct!");
+      this.score.set(index, this.score.get(index) +1);
     }
     else
       System.out.println(this.vocabLanguage + "\t" + this.vocabs.get(index));
-    String press = cmdScanner.next();
-
+    String press = cmdScanner.nextLine();
+    if(press == "r")
+      this.score.set(index, this.score.get(index) +1);
+    else
+      this.score.set(index, this.score.get(index) -1);
   }
 
   private void initLearn()

@@ -9,7 +9,7 @@ public class Learn_And_stuff extends FileIO
     //print(args[1]);
     Scanner cmdScanner = new Scanner(System.in);
     Byte press = cmdScanner.nextByte();
-    print((char) (press)); ///
+    //print((char) (press)); ///
 
     String arger[] ={"-i", "../Test.txt"};
     switch(arger[0]){
