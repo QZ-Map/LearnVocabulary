@@ -9,13 +9,13 @@ public class Learn_And_stuff extends FileIO
     //print(args[1]);
     //print((char) (press)); ///
 
-    String arger[] ={"-l", "Test"}; // {"-i", "./test.txt"};
-    switch(arger[0]){
+   //String args[] ={"-l", "Test"}; // {"-i", "./test.txt"};
+    switch(args[0]){
       case "-i":
-      importVocabs(arger);
+      importVocabs(args);
       break;
       case "-l":
-      learn(arger);
+      learn(args);
       default:
       println("what?");
     }
@@ -32,7 +32,9 @@ public class Learn_And_stuff extends FileIO
     {
     vocabSet.learn();
     println("-------Round over-------");
+    writeFile(vocabSet, "./sets/" + args[1] + ".vocab.md");
     }
+    println("You have learned " + args[1]);
   }
 
   public static void importVocabs(String[] args)

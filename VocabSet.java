@@ -13,7 +13,7 @@ public class VocabSet
   ArrayList<Integer> score;
   LinkedList<Integer> isLearning;
   boolean learned;
-  final Integer doneValue = 10;
+  final Integer doneValue = 3;
   
   public VocabSet()
   {
@@ -31,6 +31,8 @@ public class VocabSet
     this.initLearn();
     for(int i = 0; i<7; i++)
     {
+      if(this.isLearning.size() == 0)
+        break;
       Random random = new Random();
       int number = random.nextInt(this.isLearning.size() -1);
       if(this.score.get(this.isLearning.get(number))<=1 && false)
@@ -50,7 +52,7 @@ public class VocabSet
     Scanner cmdScanner = new Scanner(System.in);
     System.out.print(this.definitionLanguage + ":\t" + this.definitions.get(index) + "\n" + this.vocabLanguage + ":\t" );
     String answer = cmdScanner.nextLine();
-    if(answer.trim().toLowerCase().equals(this.vocabs.get(index).trim().toLowerCase()))
+    if(this.vocabs.get(index).trim().toLowerCase().matches("\\b" + answer.trim().toLowerCase() + "\\b")) //Regex. search for full word in definition
     {
       System.out.println("Correct!");
       this.score.set(index, this.score.get(index) +1);
