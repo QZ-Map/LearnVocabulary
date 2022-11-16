@@ -48,9 +48,9 @@ public class VocabSet
   private void type(Integer index)
   {
     Scanner cmdScanner = new Scanner(System.in);
-    System.out.print(this.definitionLanguage + "\t" + this.definitions.get(index) + "\n" + this.vocabLanguage + "\t" );
+    System.out.print(this.definitionLanguage + ":\t" + this.definitions.get(index) + "\n" + this.vocabLanguage + ":\t" );
     String answer = cmdScanner.nextLine();
-    if(answer.trim().toLowerCase() == this.vocabs.get(index).trim().toLowerCase())
+    if(answer.trim().toLowerCase().equals(this.vocabs.get(index).trim().toLowerCase()))
     {
       System.out.println("Correct!");
       this.score.set(index, this.score.get(index) +1);
@@ -58,10 +58,13 @@ public class VocabSet
     else
       System.out.println(this.vocabLanguage + "\t" + this.vocabs.get(index));
     String press = cmdScanner.nextLine();
-    if(press == "r")
+    if(press.equals("r"))
+    {
       this.score.set(index, this.score.get(index) +1);
+      System.out.println("Correct!");
+    }
     else
-      this.score.set(index, this.score.get(index) -1);
+      this.score.set(index, 1);
   }
 
   private void initLearn()

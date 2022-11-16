@@ -15,7 +15,7 @@ public class FileIO {
       fileScanner.useDelimiter("\\Z");  
       String content = fileScanner.next();
 
-      if(commaSeperatorREGEX == lineSeperatorREGEX)
+      if(commaSeperatorREGEX.equals(lineSeperatorREGEX))
       {
         String[] words = content.split(lineSeperatorREGEX);
         int i;
@@ -24,6 +24,7 @@ public class FileIO {
           if(i%2 == 0)
           {
             vocabSet.vocabs.add(words[i].trim());
+            vocabSet.score.add(0);
           }
           else
           {

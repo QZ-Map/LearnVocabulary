@@ -7,11 +7,9 @@ public class Learn_And_stuff extends FileIO
 {
   public static void main(String[] args) {
     //print(args[1]);
-    Scanner cmdScanner = new Scanner(System.in);
-    Byte press = cmdScanner.nextByte();
     //print((char) (press)); ///
 
-    String arger[] ={"-i", "../Test.txt"};
+    String arger[] ={"-l", "Test"}; // {"-i", "./test.txt"};
     switch(arger[0]){
       case "-i":
       importVocabs(arger);
