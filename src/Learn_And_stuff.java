@@ -2,20 +2,21 @@ import javax.print.attribute.standard.RequestingUserName;
 import javax.xml.*;
 import java.util.*;
 import java.io.*;
+import org.jline.terminal.*;
+import org.fusesource.jansi.*;
 
-public class Learn_And_stuff extends FileIO
+public class Learn_And_stuff extends FileIO 
 {
-  public static void main(String[] args) {
-    //print(args[1]);
-    //print((char) (press)); ///
+  public static void main(String[] args) throws Exception {
+    Terminal terminal = TerminalBuilder.terminal();
 
-   //String args[] ={"-l", "Test"}; // {"-i", "./test.txt"};
-    switch(args[0]){
+   String args2[] ={"-l", "Test"}; // {"-i", "./test.txt"};
+    switch(args2[0]){
       case "-i":
-      importVocabs(args);
+      importVocabs(args2);
       break;
       case "-l":
-      learn(args);
+      learn(args2);
       default:
       println("what?");
     }
