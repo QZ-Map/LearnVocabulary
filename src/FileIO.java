@@ -1,5 +1,3 @@
-import javax.print.attribute.standard.RequestingUserName;
-import javax.xml.*;
 import java.util.*;
 import java.io.*;
 public class FileIO {
@@ -9,6 +7,7 @@ public class FileIO {
   {
     VocabSet vocabSet = new VocabSet();
     File inputFile = new File(path);
+    
     try
     {
       Scanner fileScanner = new Scanner(inputFile);
@@ -50,6 +49,7 @@ public class FileIO {
           vocabSet.add(words[0], words[1]);
         }
       }
+      fileScanner.close();
     } catch (FileNotFoundException e)
     {
       System.out.println("Error: 404 File not found");
