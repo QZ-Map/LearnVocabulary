@@ -1,3 +1,5 @@
+package com.github.qz_map.learn_vocabulary;
+
 public class Raw { // File / Class unused
   public static char Read()
   {

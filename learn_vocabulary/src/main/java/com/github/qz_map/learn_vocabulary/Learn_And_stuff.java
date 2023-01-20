@@ -1,3 +1,4 @@
+package com.github.qz_map.learn_vocabulary;
 import java.util.*;
 //import org.jline.terminal.*;
 //import org.fusesource.jansi.*;

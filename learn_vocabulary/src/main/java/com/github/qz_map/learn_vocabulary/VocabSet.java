@@ -1,3 +1,5 @@
+package com.github.qz_map.learn_vocabulary;
+
 //import javax.print.attribute.standard.RequestingUserName;
 //import javax.xml.*;
 import java.util.*;
@@ -34,7 +36,7 @@ public class VocabSet
     this.initLearn();
     if(this.isLearning.size() == 0)
       {
-        System.out.println("You have learned this set congratulation!");
+        System.out.println("You have learned this set, congratulation!");
         return;
       }
     Integer sessionSize;
@@ -92,10 +94,10 @@ public class VocabSet
   }
 
   private static String padLeft(String s, int n) {
-     return String.format("%" + n + "s", s);  
+     return String.format("%" + n + "s", s);   
   }*/
 
-  private String[] populatePossibleAnswers(int correctAnswerIndex)
+  public String[] populatePossibleAnswers(int correctAnswerIndex)
   {
     String[] possibleAnswers = new String[4];
     Integer[] shuffledOrder = shuffledOrder(this.vocabs.size());
@@ -119,7 +121,7 @@ public class VocabSet
   private Integer[] shuffledOrder(int length) // return a shuffled array {1 … n}
   {
     Integer[] order = new Integer[length];
-    Arrays.setAll(order, i -> i + 1);
+    Arrays.setAll(order, i -> i + 1); 
     List<Integer> list = Arrays.asList(order);
     Collections.shuffle(list);
     return list.toArray(order);
@@ -159,7 +161,7 @@ public class VocabSet
     }
   }
 
-  private void initLearn()
+  public void initLearn()
   {
     int tolearn = 0; // count vocabs to learn
     for(int i = 0; i < this.vocabs.size(); i++)
