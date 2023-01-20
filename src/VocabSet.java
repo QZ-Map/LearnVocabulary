@@ -27,7 +27,6 @@ public class VocabSet
     this.score = new ArrayList<Integer>();
     this.learned = false;
     this.isLearning = new LinkedList<Integer>();
-    
   }
   public void learn()
   {

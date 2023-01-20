@@ -25,26 +25,56 @@ public class Learn_And_stuff extends FileIO
     writeFile(vocabSet, file);*/
   }
 
-  /*public static String[] noArgs()
+  public static String[] noArgs()
   {
     println("i \t Import a vocab set from a text document.");
     println("l \t Learn a vocab set.");
     println("r \t Reset progress of a vocab set");
     Character[] options = {'i', 'l', 'r'};
     Character choise = TerminalIO.awaitKeyPress(options);
+    String[] args = new String[2];
+    args[0] = choise.toString();
+    String answer;
+    String[] knownSets = getKnownSetNames("./Vocabsets");
     switch(choise)
     {
       case 'i':
         println("Where is the text file?");
         String path = TerminalIO.cmdScanner.nextLine();
-        String[] args = {choise.toString(), path};
+        args[1] = path;
         return args;
       case 'l':
-        print("What do you want to learn? (either the name of a listed set or a path to the set)");
-        String[] knownSets = 
-        for()
+        print("Wich set do you want to learn? (either the name of a listed set or a path to the set)");
+        for(String set: knownSets)
+        {
+          print(set + ", ");
+        }
+        answer = TerminalIO.cmdScanner.nextLine();
+        args[1] = answer;
+        return args;
+      case 'r':
+        print("Wich set do you want to reset? (either the name of a listed set or a path to the set)");
+        for(String set : knownSets)
+        {
+          print(set + ", ");
+        }
+        answer = TerminalIO.cmdScanner.nextLine();
+        args[1] = answer;
+        return args;
+      default:
+        return args;
     }
-  } */
+  } 
+  
+  public static String list(String[] Array)
+  {
+    String out = "";
+    for (String element : Array) {
+      out += element + ", ";
+    }
+    return out.substring(0, out.length()-2);
+  }
+
 
   public static void learn(String[] args)
   {

@@ -2,6 +2,37 @@ import java.util.*;
 import java.io.*;
 public class FileIO {
 
+  public static String[] getKnownSetNames( String folder)
+  {
+    File[] files = getKnownSets(folder);
+    String[] fileNames = new String[files.length];
+    int i = 0;
+    for(File file : files)
+    {
+      fileNames[i] = file.getName();
+      i++;
+    }
+    return fileNames;
+  }
+
+  public static File[] getKnownSets(String folder)
+  {
+    File setFolder = new File(folder);
+    if(!setFolder.isDirectory())
+      return new File[0];
+    else
+    {
+      FileFilter filter = new FileFilter() {
+        public boolean accept(File file) {
+          if (file.getName().endsWith(".vocab.txt"))
+            return true;
+          else
+            return false;
+        }
+      };
+      return setFolder.listFiles(filter);
+    }
+  }
 
   public static VocabSet importFromTXT(String path, String commaSeperatorREGEX, String lineSeperatorREGEX)
   {

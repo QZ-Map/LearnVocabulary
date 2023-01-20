@@ -11,7 +11,7 @@ import java.util.*;
 
 
 public class TerminalIO {
-  static Scanner cmdScanner; // A scanner shared in the whole programm, i hope
+  static Scanner cmdScanner; // A scanner shared in the whole programm, I hope
   public static Boolean acceptDeny_Jn(char denykey) //throws Exception
   {
     //Scanner cmdScanner = new Scanner(System.in);
@@ -34,7 +34,7 @@ public class TerminalIO {
     char pressed;
     while (true)
     {
-      while(cmdScanner.hasNextLine() == false);  // Waits until the scanner has a line, Important, when 2 scans happen too close to each other
+      while(cmdScanner.hasNextLine() == false); 
       String input = cmdScanner.nextLine();
       pressed = input.charAt(0);
       for(Character validKey : validKeys)
